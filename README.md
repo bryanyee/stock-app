@@ -1,1 +1,3 @@
 # stock-app
+
+`npm start`
