@@ -27,7 +27,7 @@ Extra Credit Ideas:
   - https://finance.yahoo.com/quote/AAPL/history?period1=1642118400&period2=1643500800&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true
 - x Create skeleton structure of app w/ react-router
 - x Use css-modules
-- Fill out login page
+- x Fill out login page
 - Render stock list and details views w/ stubbed data
 - Create API service
 - Feature: Add new symbols
