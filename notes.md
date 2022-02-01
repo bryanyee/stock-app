@@ -11,7 +11,7 @@ Business Requirements:
 
 Minimum Technical Requirements:
 - x Add at least three components - list view, detail view and header component that gets displayed in the detail view
-- Add a service to handle API access
+- x Add a service to handle API access
 
 Extra Credit Ideas:
 - Make the app look good using material design or bootstrap
@@ -30,10 +30,18 @@ Extra Credit Ideas:
 - x Create login page
 - x Render stock list and details views w/ stubbed data
 - x Remove extra homepage
-- Create and use API service
-  - Use the sorting capability of json-server
+- x Create and use API service
 - Feature: Add new symbols
 - Feature: Remove symbols
-- Organize components into a stocks module & reorganize other files
+- Organize components into a stocks module & reorganize other files (hooks, components, shared)
 - Style w/ bootstrap
 - Lazy load stocks module
+
+## Personal TODO
+- Determine how to fetch stock data from the react-query cache, given a stock ticker
+
+## Learnings
+- Using json-server for simple API
+- Practice w/ react-router v6
+- Practice w/ react-query
+- Lazy-loading modules

@@ -1,8 +1,11 @@
 import AppRoutes from './AppRoutes';
+import QueryProvider from './QueryProvider';
 
 function App() {
   return (
-    <AppRoutes />
+    <QueryProvider>
+      <AppRoutes />
+    </QueryProvider>
   );
 }
 

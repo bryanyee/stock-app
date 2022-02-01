@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import stocks from './stocks.json';
+import useStockByTickerQuery from './useStockByTickerQuery';
 import BackButton from './BackButton';
 import StockHeader from './StockHeader';
 import { formatPrice } from './utilities';
@@ -8,8 +8,13 @@ import styles from './StockDetails.module.css';
 
 function StockDetails() {
   const { ticker } = useParams();
+  const { data: stock, isLoading, isError } = useStockByTickerQuery(ticker);
 
-  const stock = stocks.find((stock) => stock.ticker === ticker);
+  // For Production: Add loading and error UI states
+  if (isLoading || isError) {
+    return null;
+  }
+
   // Sort prices by date, descending
   const prices = stock.historicalPrices.sort((dayPrice1, dayPrice2) => {
     if (dayPrice1.date < dayPrice2.date) return 1;

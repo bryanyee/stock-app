@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 
-import stocks from './stocks.json';
+import useStocksQuery from './useStocksQuery';
 import styles from './StockIndex.module.css';
 
 function StockIndex() {
+  const { data: stocks, isLoading, isError } = useStocksQuery();
+  
+  // For Production: Add loading and error UI states
+  if (isLoading || isError) {
+    return null;
+  }
+
   return (
     <div>
       <Link to="login" className={styles['nav-link']}>Login</Link>
