@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 
 import stocks from './stocks.json';
-import styles from './StockList.module.css';
+import styles from './StockIndex.module.css';
 
-function StockList() {
+function StockIndex() {
   return (
     <div>
-      <h2>Stocks</h2>
+      <Link to="login" className={styles['nav-link']}>Login</Link>
+      <h2>Welcome to the Stock App!</h2>
       <div>
         <table className={styles['stock-table']}>
           <thead>
@@ -19,7 +20,7 @@ function StockList() {
             {stocks.map((stock) => (
               <tr key={stock.ticker}>
                 <td>
-                  <Link to={stock.ticker}>
+                  <Link to={`/stocks/${stock.ticker}`}>
                     {stock.ticker}
                   </Link>
                 </td>
@@ -33,4 +34,4 @@ function StockList() {
   )
 }
 
-export default StockList;
+export default StockIndex;
