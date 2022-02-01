@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
 
-import './Layout.css'
+import styles from './Layout.module.css'
 
 function Layout() {
   return (
-    <div className="wrapper">
-      <div className="container">
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
         <Outlet />
       </div>
     </div>
