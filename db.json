@@ -3,7 +3,9 @@
     {
       "id": 0,
       "ticker": "AAPL",
-      "history": [
+      "name": "Apple Inc.",
+      "currentPrice": 174.78,
+      "historicalPrices": [
         {
           "date": "2022-01-14",
           "open": 171.339996,
@@ -89,7 +91,9 @@
     {
       "id": 1,
       "ticker": "TSLA",
-      "history": [
+      "name": "Tesla, Inc.",
+      "currentPrice": 936.72,
+      "historicalPrices": [
         {
           "date": "2022-01-14",
           "open": 1019.880005,
@@ -175,7 +179,9 @@
     {
       "id": 2,
       "ticker": "GOOGL",
-      "history": [
+      "name": "Alphabet Inc.",
+      "currentPrice": 2706.07,
+      "historicalPrices": [
         {
           "date": "2022-01-14",
           "open": 2741.580078,
@@ -261,7 +267,9 @@
     {
       "id": 3,
       "ticker": "MSFT",
-      "history": [
+      "name": "Microsoft Corporation",
+      "currentPrice": 310.98,
+      "historicalPrices": [
         {
           "date": "2022-01-14",
           "open": 304.250000,
@@ -339,7 +347,9 @@
     {
       "id": 4,
       "ticker": "NFLX",
-      "history": [
+      "name": "Netflix, Inc.",
+      "currentPrice": 427.14,
+      "historicalPrices": [
         {
           "date": "2022-01-28",
           "open": 300.230011,
