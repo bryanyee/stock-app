@@ -26,8 +26,11 @@ Extra Credit Ideas:
 - x Create mock data
   - https://finance.yahoo.com/quote/AAPL/history?period1=1642118400&period2=1643500800&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true
 - Create skeleton structure of app w/ react-router
+- Use css-modules and scss
+- Fill out login page
+- Render stock list and details views w/ stubbed data
 - Create API service
-- Render data - list view & detail view
 - Feature: Add new symbols
 - Feature: Remove symbols
+- Reorganize files
 - Style w/ bootstrap
