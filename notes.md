@@ -14,10 +14,10 @@ Minimum Technical Requirements:
 - x Add a service to handle API access
 
 Extra Credit Ideas:
-- Make the app look good using material design or bootstrap
+- o Make the app look good using material design or bootstrap
 - Lazy load stocks module
-- Add unit tests 
-- Use Redux
+- o Add unit tests 
+- o Use Redux
 - Toast notification when a stock is added or removed
 
 
@@ -30,12 +30,12 @@ Extra Credit Ideas:
 - x Create login page
 - x Render stock list and details views w/ stubbed data
 - x Remove extra homepage
-- x Create and use API service
+- x Connect frontend to API w/ react-query
 - Feature: Add new symbols
 - Feature: Remove symbols
 - Organize components into a stocks module & reorganize other files (hooks, components, shared)
-- Style w/ bootstrap
 - Lazy load stocks module
+- Toast notification
 
 ## Personal TODO
 - Determine how to fetch stock data from the react-query cache, given a stock ticker

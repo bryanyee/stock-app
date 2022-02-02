@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import AddStock from './AddStock';
 import useStocksQuery from './useStocksQuery';
 import styles from './StockIndex.module.css';
 
@@ -36,6 +37,7 @@ function StockIndex() {
             ))}
           </tbody>
         </table>
+        <AddStock />
       </div>
     </div>
   )

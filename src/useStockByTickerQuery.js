@@ -2,9 +2,8 @@ import { useQuery } from 'react-query';
 
 import { URLS } from './constants';
 
-// For Production: Lookup singular resource data from the react-query cache first,
-// before making an API call. However, this is only a viable approach as long as
-// the Stock Details page can get all its data from the /stocks index API call
+// Alternative Approach: Use the stock `id` instead of `ticker` in the web app url, and
+// request stock resource data from /stocks/:id
 async function fetchStockByTicker({ queryKey }) {
   const ticker = queryKey[1];
   const url = `${URLS.stocks}?ticker=${ticker}`;
