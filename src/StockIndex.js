@@ -1,11 +1,17 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import AddStock from './AddStock';
+import DeleteStockConfirmation from './DeleteStockConfirmation';
 import useStocksQuery from './useStocksQuery';
 import styles from './StockIndex.module.css';
+import sharedStyles from './shared.module.css';
 
 function StockIndex() {
-  const { data: stocks, isLoading, isError } = useStocksQuery();
+  const [selectedStockIdForDeletion, setSelectedStockIdForDeletion] = useState(null);
+  const { data: stocks = [], isLoading, isError } = useStocksQuery();
+
+  const selectedStock = stocks.find(({ id }) => id === selectedStockIdForDeletion);
   
   // For Production: Add loading and error UI states
   if (isLoading || isError) {
@@ -25,19 +31,28 @@ function StockIndex() {
             </tr>
           </thead>
           <tbody>
-            {stocks.map((stock) => (
-              <tr key={stock.ticker}>
+            {stocks.map(({ ticker, id, name }) => (
+              <tr key={ticker}>
                 <td>
-                  <Link to={`/stocks/${stock.ticker}`}>
-                    {stock.ticker}
+                  <Link to={`/stocks/${ticker}`}>
+                    {ticker}
                   </Link>
                 </td>
-                <td>{stock.name}</td>
+                <td>{name}</td>
+                <td><button onClick={() => setSelectedStockIdForDeletion(id)}>Delete</button></td>
               </tr>
             ))}
           </tbody>
         </table>
-        <AddStock />
+        <AddStock className={sharedStyles['margin-bottom']} />
+        {selectedStockIdForDeletion !== null && (
+          <DeleteStockConfirmation
+            id={selectedStock.id}
+            ticker={selectedStock.ticker}
+            onCancelClick={() => setSelectedStockIdForDeletion(null)}
+            onConfirmClick={() => setSelectedStockIdForDeletion(null)}
+          />
+        )}
       </div>
     </div>
   )

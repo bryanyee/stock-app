@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation } from 'react-query';
 
 import { URLS } from './constants';
 
@@ -18,17 +18,7 @@ async function addStock({ ticker }) {
 }
 
 function useAddStockMutation() {
-  const queryClient = useQueryClient();
-
-  return useMutation(addStock, {
-    // Update `stocks` in the react-query cache w/ the newly created data
-    onSuccess: (newStock) => {
-      queryClient.setQueryData(
-        'stocks',
-        (oldStocks) => [...oldStocks, newStock],
-      );
-    }
-  });
+  return useMutation(addStock);
 }
 
 export default useAddStockMutation;

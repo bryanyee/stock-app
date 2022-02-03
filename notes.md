@@ -7,7 +7,7 @@ Business Requirements:
 - x The detail view should have a header component to display the symbol and the company name.
 - Group the list and detail view components in a custom "stocks" module.
 - x Allow users to add new symbols in the list view. Throw validation when an existing symbol is added.
-- Allow users to remove symbols after confirming "Yes" on a confirmation window.
+- x Allow users to remove symbols after confirming "Yes" on a confirmation window.
 
 Minimum Technical Requirements:
 - x Add at least three components - list view, detail view and header component that gets displayed in the detail view
@@ -18,7 +18,7 @@ Extra Credit Ideas:
 - Lazy load stocks module
 - o Add unit tests 
 - o Use Redux
-- Toast notification when a stock is added or removed
+- o Toast notification when a stock is added or removed
 
 
 ## Plan
@@ -32,7 +32,7 @@ Extra Credit Ideas:
 - x Remove extra homepage
 - x Connect frontend to API w/ react-query
 - x Feature: Add new symbols
-- Feature: Remove symbols
+- x Feature: Remove symbols
 - Organize components into a stocks module & reorganize other files (hooks, components, shared)
 - Lazy load stocks module
 
