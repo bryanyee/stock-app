@@ -11,7 +11,8 @@ async function addStock({ ticker }) {
     body: JSON.stringify({ ticker }),
   });
   if (!response.ok) {
-    throw new Error('Bad response');
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
   }
   return response.json();
 }

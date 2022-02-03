@@ -6,7 +6,7 @@ Business Requirements:
 - x Add a back button in the "detail view" so users can return to "list view" of the stocks.
 - x The detail view should have a header component to display the symbol and the company name.
 - Group the list and detail view components in a custom "stocks" module.
-- Allow users to add new symbols in the list view. Throw validation when an existing symbol is added.
+- x Allow users to add new symbols in the list view. Throw validation when an existing symbol is added.
 - Allow users to remove symbols after confirming "Yes" on a confirmation window.
 
 Minimum Technical Requirements:
@@ -31,17 +31,15 @@ Extra Credit Ideas:
 - x Render stock list and details views w/ stubbed data
 - x Remove extra homepage
 - x Connect frontend to API w/ react-query
-- Feature: Add new symbols
+- x Feature: Add new symbols
 - Feature: Remove symbols
 - Organize components into a stocks module & reorganize other files (hooks, components, shared)
 - Lazy load stocks module
-- Toast notification
 
-## Personal TODO
-- Determine how to fetch stock data from the react-query cache, given a stock ticker
 
 ## Learnings
 - Using json-server for simple API
-- Practice w/ react-router v6
-- Practice w/ react-query
+  - Add custom behavior (create stub data) using middlewhere
+- react-router v6 (new APIs for nested routes)
+- react-query mutations and client cache updates
 - Lazy-loading modules

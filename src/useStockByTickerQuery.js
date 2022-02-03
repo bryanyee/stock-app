@@ -9,7 +9,8 @@ async function fetchStockByTicker({ queryKey }) {
   const url = `${URLS.stocks}?ticker=${ticker}`;
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error('Bad response');
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
   }
   const data = await response.json();
   // Data is returned as a list, rather than a single resource, since the

@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function buildStock({ ticker, name, currentPrice, historicalPrices }) {
   const num = (Math.random() * 1000).toFixed();
   return {
@@ -25,8 +27,17 @@ function buildStock({ ticker, name, currentPrice, historicalPrices }) {
   }
 }
 
+// Alternative Approach: Use lowdb to read data from the json db
+function tickerExists(ticker) {
+  const file = fs.readFileSync('./db.json');
+  const db = JSON.parse(file);
+  const stock = db.stocks.find((stock) => stock.ticker === ticker);
+  return stock !== undefined;
+}
+
 module.exports = {
   buildStock,
+  tickerExists,
 };
 
 
