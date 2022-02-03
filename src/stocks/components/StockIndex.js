@@ -52,7 +52,7 @@ function StockIndex() {
             id={selectedStock.id}
             ticker={selectedStock.ticker}
             onCancelClick={() => setSelectedStockIdForDeletion(null)}
-            onConfirmClick={() => setSelectedStockIdForDeletion(null)}
+            onConfirmSuccess={() => setSelectedStockIdForDeletion(null)}
           />
         )}
       </div>

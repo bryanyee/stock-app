@@ -5,11 +5,11 @@ import useDeleteStockMutation from '../hooks/useDeleteStockMutation';
 
 import styles from '../../shared.module.css';
 
-function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmClick }) {
+function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmSuccess }) {
   const queryClient = useQueryClient();
   const deleteStockMutation = useDeleteStockMutation();
 
-  const onConfirmClickInner = () => {
+  const onConfirmClick = () => {
     deleteStockMutation.mutate(id, {
       onSuccess: () => {
         // Update `stocks` in the react-query cache to remove the deleted stock
@@ -21,7 +21,7 @@ function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmClick }) 
           },
         );
 
-        onConfirmClick();
+        onConfirmSuccess();
       },
     });
   };
@@ -29,7 +29,7 @@ function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmClick }) 
   return (
     <div>
       <span className={styles['margin-right']}>{`Delete stock: ${ticker}?`}</span>
-      <button onClick={onConfirmClickInner} className={styles['margin-right']}>Confirm</button>
+      <button onClick={onConfirmClick} className={styles['margin-right']}>Confirm</button>
       <button onClick={onCancelClick}>Cancel</button>
     </div>
   );
@@ -37,14 +37,14 @@ function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmClick }) 
 
 DeleteStockConfirmation.defaultProps = {
   onCancelClick: () => {},
-  onConfirmClick: () => {},
+  onConfirmSuccess: () => {},
 };
 
 DeleteStockConfirmation.propTypes = {
   id: PropTypes.number.isRequired,
   ticker: PropTypes.string.isRequired,
   onCancelClick: PropTypes.func,
-  onConfirmClick: PropTypes.func,
+  onConfirmSuccess: PropTypes.func,
 };
 
 export default DeleteStockConfirmation;
