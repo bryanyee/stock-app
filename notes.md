@@ -17,7 +17,7 @@
 
 ### Extra Credit Ideas:
 - Make the app look good using material design or bootstrap
-- Lazy load stocks module
+- :white_check_mark: Lazy load stocks module
 - Add unit tests 
 - Use Redux
 - Toast notification when a stock is added or removed
@@ -36,7 +36,7 @@
 - :white_check_mark: Feature: Add new symbols
 - :white_check_mark: Feature: Remove symbols
 - :white_check_mark: Organize components into a stocks module & reorganize other files (hooks, components, shared)
-- Lazy load stocks module
+- :white_check_mark: Lazy load stocks module
 
 
 ## Learnings
@@ -44,4 +44,4 @@
 - json-server: add custom behavior (create stub data & validate ticker uniqueness) using middlewhere
 - react-router v6: new APIs for nested routes
 - react-query: mutations and client cache updates
-- Lazy-loading modules
+- Lazy-loading modules w/ code-splitting
