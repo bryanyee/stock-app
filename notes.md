@@ -39,10 +39,6 @@
 - Lazy load stocks module
 
 
-- Update server routes
-- Check how backend modules are installed
-
-
 ## Learnings
 - json-server: simple API w/ stubbed data
 - json-server: add custom behavior (create stub data & validate ticker uniqueness) using middlewhere
