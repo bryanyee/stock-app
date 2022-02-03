@@ -1,10 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
-import useStockByTickerQuery from './useStockByTickerQuery';
-import BackButton from './BackButton';
 import StockHeader from './StockHeader';
-import { formatPrice } from './utilities';
 import styles from './StockDetails.module.css';
+
+import useStockByTickerQuery from '../hooks/useStockByTickerQuery';
+
+import BackButton from '../../components/BackButton';
+
+import { formatPrice } from '../../utilities';
 
 function StockDetails() {
   const { ticker } = useParams();

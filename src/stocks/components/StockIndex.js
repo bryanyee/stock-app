@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import AddStock from './AddStock';
 import DeleteStockConfirmation from './DeleteStockConfirmation';
-import useStocksQuery from './useStocksQuery';
 import styles from './StockIndex.module.css';
-import sharedStyles from './shared.module.css';
+
+import useStocksQuery from '../hooks/useStocksQuery';
+
+import sharedStyles from '../../shared.module.css';
 
 function StockIndex() {
   const [selectedStockIdForDeletion, setSelectedStockIdForDeletion] = useState(null);

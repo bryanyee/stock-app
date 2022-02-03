@@ -1,4 +1,4 @@
-import AppPropTypes from './AppPropTypes';
+import AppPropTypes from '../../AppPropTypes';
 
 function StockHeader({ stock: { name, currentPrice, ticker } }) {
   return (

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // Alternative Approach: Use controlled components, instead of uncontrolled forms
 // Not done here because the form is extremely simple

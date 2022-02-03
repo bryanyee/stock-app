@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query';
 
-import { URLS } from './constants';
+import { URLS } from '../../constants';
 
 async function addStock({ ticker }) {
   const response = await fetch(URLS.stocks, {

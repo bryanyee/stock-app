@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { useQueryClient } from 'react-query';
 
-import useDeleteStockMutation from './useDeleteStockMutation';
-import styles from './shared.module.css';
+import useDeleteStockMutation from '../hooks/useDeleteStockMutation';
+
+import styles from '../../shared.module.css';
 
 function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmClick }) {
   const queryClient = useQueryClient();

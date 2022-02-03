@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 
-import { URLS } from './constants';
+import { URLS } from '../../constants';
 
 // Alternative Approach: Use the stock `id` instead of `ticker` in the web app url, and
 // request stock resource data from /stocks/:id

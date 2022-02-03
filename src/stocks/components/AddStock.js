@@ -2,8 +2,9 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useQueryClient } from 'react-query';
 
-import useAddStockMutation from './useAddStockMutation';
-import styles from './shared.module.css';
+import useAddStockMutation from '../hooks/useAddStockMutation';
+
+import styles from '../../shared.module.css';
 
 function AddStock({ className }) {
   const formRef = useRef();

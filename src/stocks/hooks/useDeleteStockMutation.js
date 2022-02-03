@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query';
 
-import { URLS } from './constants';
+import { URLS } from '../../constants';
 
 async function deleteStock(id) {
   const url = `${URLS.stocks}/${id}`;
