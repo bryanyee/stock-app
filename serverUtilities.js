@@ -2,9 +2,10 @@ const fs = require('fs');
 
 function buildStock({ ticker, name, currentPrice, historicalPrices }) {
   const num = (Math.random() * 1000).toFixed();
+  const tickerFinal = ticker || num.toString();
   return {
-    ticker: ticker || num.toString(),
-    name: name || `Test Company ${num}`,
+    ticker: tickerFinal,
+    name: name || `Test Company ${tickerFinal}`,
     currentPrice: currentPrice || (Math.random() * 100).toFixed(2),
     historicalPrices: historicalPrices || [
       {
