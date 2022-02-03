@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useQueryClient } from 'react-query';
 
 import useDeleteStockMutation from './useDeleteStockMutation';
@@ -32,5 +33,17 @@ function DeleteStockConfirmation({ id, ticker, onCancelClick, onConfirmClick }) 
     </div>
   );
 }
+
+DeleteStockConfirmation.defaultProps = {
+  onCancelClick: () => {},
+  onConfirmClick: () => {},
+};
+
+DeleteStockConfirmation.propTypes = {
+  id: PropTypes.number.isRequired,
+  ticker: PropTypes.string.isRequired,
+  onCancelClick: PropTypes.func,
+  onConfirmClick: PropTypes.func,
+};
 
 export default DeleteStockConfirmation;
