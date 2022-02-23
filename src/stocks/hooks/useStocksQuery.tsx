@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import { URLS } from '../../constants';
 
-async function fetchStocks() {
+async function fetchStocks(): Promise<Stock[]> {
   const url = `${URLS.stocks}?_sort=ticker&_order=asc`;
   const response = await fetch(url);
   if (!response.ok) {

@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 
 import { URLS } from '../../constants';
 
-async function deleteStock(id) {
+async function deleteStock(id: number): Promise<any> {
   const url = `${URLS.stocks}/${id}`;
   const response = await fetch(url, { method: 'DELETE' });
   if (!response.ok) {

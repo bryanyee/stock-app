@@ -10,8 +10,9 @@ import BackButton from '../../components/BackButton';
 import { formatPrice } from '../../utilities';
 
 function StockDetails() {
-  const { ticker } = useParams();
-  const { data: stock, isLoading, isError } = useStockByTickerQuery(ticker);
+  const { ticker } = useParams<{ticker: string}>();
+  const { data, isLoading, isError } = useStockByTickerQuery(ticker!);
+  const stock = data as Stock;
 
   // For Production: Add loading and error UI states
   if (isLoading || isError) {

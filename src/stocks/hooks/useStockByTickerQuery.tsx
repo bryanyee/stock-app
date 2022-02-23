@@ -1,10 +1,10 @@
-import { useQuery } from 'react-query';
+import { useQuery, QueryKey } from 'react-query';
 
 import { URLS } from '../../constants';
 
 // Alternative Approach: Use the stock `id` instead of `ticker` in the web app url, and
 // request stock resource data from /stocks/:id
-async function fetchStockByTicker({ queryKey }) {
+async function fetchStockByTicker({ queryKey }: { queryKey: QueryKey }): Promise<Stock>   {
   const ticker = queryKey[1];
   const url = `${URLS.stocks}?ticker=${ticker}`;
   const response = await fetch(url);
@@ -18,7 +18,7 @@ async function fetchStockByTicker({ queryKey }) {
   return data[0];
 }
 
-function useStockByTickerQuery(ticker) {
+function useStockByTickerQuery(ticker: string) {
   return useQuery(['stocks', ticker], fetchStockByTicker);
 }
 

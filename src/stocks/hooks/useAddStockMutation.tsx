@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 
 import { URLS } from '../../constants';
 
-async function addStock({ ticker }) {
+async function addStock({ ticker }: { ticker : string }): Promise<Stock> {
   const response = await fetch(URLS.stocks, {
     method: 'POST',
     headers: {

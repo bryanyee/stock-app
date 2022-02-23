@@ -1,3 +1,4 @@
+import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Alternative Approach: Use controlled components, instead of uncontrolled forms
@@ -6,7 +7,7 @@ function Login() {
   const navigate = useNavigate();
 
   // For Production: Add authentication mechanism
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate('/');
   };

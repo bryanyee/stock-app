@@ -1,32 +1,43 @@
-import { useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { FormEvent, useRef } from 'react';
 import { useQueryClient } from 'react-query';
 
 import useAddStockMutation from '../hooks/useAddStockMutation';
 
 import styles from '../../shared.module.css';
 
-function AddStock({ className }) {
-  const formRef = useRef();
+interface AddStockProps {
+  className?: string;
+}
+
+function AddStock({ className = '' }: AddStockProps) {
+  const formRef = useRef<HTMLFormElement>(null);
   const queryClient = useQueryClient();
   const addStockMutation = useAddStockMutation();
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const target = e.target as HTMLFormElement;
+    const ticker: string = target.ticker.value;
 
-    addStockMutation.mutate(data, {
-      onSuccess: (newStock) => {
-        formRef.current.reset();
+    addStockMutation.mutate({ ticker }, {
+      onSuccess: (newStock: Stock) => {
+        if (formRef.current) {
+          formRef.current.reset();
+        }
 
         // Update `stocks` in the react-query cache w/ the newly created data
         queryClient.setQueryData(
           'stocks',
-          (oldStocks) => [...oldStocks, newStock],
+          (oldStocks: Stock[] | undefined = []) => {
+            return [
+              ...oldStocks,
+              newStock
+            ]
+          },
         );
       },
       onError: (message) => {
+        console.log('error');
         alert(message);
       }
     });
@@ -40,13 +51,5 @@ function AddStock({ className }) {
     </form>
   );
 }
-
-AddStock.defaultProps = {
-  className: '',
-};
-
-AddStock.propTypes = {
-  className: PropTypes.string,
-};
 
 export default AddStock;

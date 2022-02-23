@@ -10,10 +10,11 @@ import useStocksQuery from '../hooks/useStocksQuery';
 import sharedStyles from '../../shared.module.css';
 
 function StockIndex() {
-  const [selectedStockIdForDeletion, setSelectedStockIdForDeletion] = useState(null);
-  const { data: stocks = [], isLoading, isError } = useStocksQuery();
+  const [selectedStockIdForDeletion, setSelectedStockIdForDeletion] = useState<number | null>(null);
+  const { data, isLoading, isError } = useStocksQuery();
+  const stocks: Stock[] = data || [];
 
-  const selectedStock = stocks.find(({ id }) => id === selectedStockIdForDeletion);
+  const selectedStock: Stock | undefined = stocks.find(({ id }) => id === selectedStockIdForDeletion);
   
   // For Production: Add loading and error UI states
   if (isLoading || isError) {
@@ -47,7 +48,7 @@ function StockIndex() {
           </tbody>
         </table>
         <AddStock className={sharedStyles['margin-bottom']} />
-        {selectedStockIdForDeletion !== null && (
+        {selectedStock && (
           <DeleteStockConfirmation
             id={selectedStock.id}
             ticker={selectedStock.ticker}

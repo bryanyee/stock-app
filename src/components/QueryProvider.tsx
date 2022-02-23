@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient({
@@ -8,7 +9,11 @@ const queryClient = new QueryClient({
   },
 });
 
-function QueryProvider({ children }) {
+interface QueryProviderProps {
+  children?: ReactNode;
+}
+
+function QueryProvider({ children = null }: QueryProviderProps) {
   return (
     <QueryClientProvider client={queryClient}>
        {children}
