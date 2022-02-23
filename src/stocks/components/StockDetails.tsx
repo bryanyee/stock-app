@@ -11,11 +11,11 @@ import { formatPrice } from '../../utilities';
 
 function StockDetails() {
   const { ticker } = useParams<{ticker: string}>();
-  const { data, isLoading, isError } = useStockByTickerQuery(ticker!);
-  const stock = data as Stock;
+  const stockByTickerQuery = useStockByTickerQuery(ticker!);
+  const stock = stockByTickerQuery.data as Stock;
 
   // For Production: Add loading and error UI states
-  if (isLoading || isError) {
+  if (stockByTickerQuery.isLoading || stockByTickerQuery.isError) {
     return null;
   }
 

@@ -37,7 +37,6 @@ function AddStock({ className = '' }: AddStockProps) {
         );
       },
       onError: (message) => {
-        console.log('error');
         alert(message);
       }
     });

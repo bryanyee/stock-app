@@ -11,13 +11,13 @@ import sharedStyles from '../../shared.module.css';
 
 function StockIndex() {
   const [selectedStockIdForDeletion, setSelectedStockIdForDeletion] = useState<number | null>(null);
-  const { data, isLoading, isError } = useStocksQuery();
-  const stocks: Stock[] = data || [];
+  const stocksQuery = useStocksQuery();
+  const stocks: Stock[] = stocksQuery.data || [];
 
   const selectedStock: Stock | undefined = stocks.find(({ id }) => id === selectedStockIdForDeletion);
   
   // For Production: Add loading and error UI states
-  if (isLoading || isError) {
+  if (stocksQuery.isLoading || stocksQuery.isError) {
     return null;
   }
 
