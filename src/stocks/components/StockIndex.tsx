@@ -14,7 +14,7 @@ function StockIndex() {
   const stocks: Stock[] = stocksQuery.data || [];
 
   return (
-    <div>
+    <div data-testid="stock-index-page">
       <Link to="login" className={styles['nav-link']}>Login</Link>
       <h2>Welcome to the Stock App!</h2>
       {/* For Production: Add loading and error UI states */}
