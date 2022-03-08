@@ -17,6 +17,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
+    "@testing-library/user-event": "^14.0.0-beta",
     "json-server": "^0.17.0",
     "msw": "^0.39.0",
     "typescript-plugin-css-modules": "^3.4.0"
