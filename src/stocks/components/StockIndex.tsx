@@ -50,7 +50,14 @@ function StockIndexContent({ stocks }: { stocks: Stock[] }) {
                 </Link>
               </td>
               <td>{name}</td>
-              <td><button onClick={() => setSelectedStockIdForDeletion(id)}>Delete</button></td>
+              <td>
+                <button
+                  data-testid={`delete-${ticker}`}
+                  onClick={() => setSelectedStockIdForDeletion(id)}
+                  >
+                    Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

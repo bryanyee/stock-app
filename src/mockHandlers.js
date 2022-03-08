@@ -47,6 +47,14 @@ const handlers = [
     }
     return res(ctx.json(stockStubs));
   }),
+
+  // DELETE /stocks/:id
+  rest.delete(`${URLS.stocks}/:id`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({}),
+    );
+  }),
 ];
 
 export default handlers;
