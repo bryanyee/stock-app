@@ -2,27 +2,11 @@ import { rest } from 'msw';
 
 import { URLS } from './constants';
 
-const stockStubs = [
-  {
-    "id": 0,
-    "ticker": "TEST-TICKER",
-    "name": "Test Inc.",
-    "currentPrice": 174.78,
-    "historicalPrices": [
-      {
-        "date": "2022-01-14",
-        "open": 171.339996,
-        "high": 173.779999,
-        "low": 171.089996,
-        "close": 173.070007,
-        "volume": 80355000
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "ticker": "SECOND-TICKER",
-    "name": "Second Inc.",
+function createStock({ id = 100, ticker = 'DEFAULT-TICKER', name = 'Default Inc.' }) {
+  return {
+    id,
+    ticker,
+    name,
     "currentPrice": 10,
     "historicalPrices": [
       {
@@ -34,8 +18,12 @@ const stockStubs = [
         "volume": 100
       }
     ]
-  }
-];
+  };
+}
+
+const stock0 = createStock({ id: 0, ticker: 'TEST-TICKER', name: 'Test Inc.' });
+const stock1 = createStock({ id: 1, ticker: 'SECOND-TICKER', name: 'Second Inc.' });
+const newStock = createStock({ id: 2, ticker: 'NEW-TICKER', name: 'New Inc.' });
 
 const handlers = [
   // GET /stocks?ticker=<ticker>
@@ -43,9 +31,17 @@ const handlers = [
   rest.get(URLS.stocks, (req, res, ctx) => {
     const tickerParam = req.url.searchParams.get('ticker');
     if (tickerParam) {
-      return res(ctx.json([stockStubs[0]]));
+      return res(ctx.json([stock0]));
     }
-    return res(ctx.json(stockStubs));
+    return res(ctx.json([stock0, stock1]));
+  }),
+
+  // POST /stocks
+  rest.post(URLS.stocks, (req, res, ctx) => {
+    return res(
+      ctx.status(201),
+      ctx.json(newStock),
+    );
   }),
 
   // DELETE /stocks/:id

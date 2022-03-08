@@ -14,19 +14,21 @@ function renderAppWithRouter() {
 }
 
 it('renders the app', async () => {
-  renderAppWithRouter()
-  expect(await screen.findByTestId('stock-index-page')).toBeVisible();
+  renderAppWithRouter();
+  await waitFor(() => {
+    expect(screen.getByTestId('stock-index-page')).toBeVisible();
+  })
 });
 
 it('renders the index page with stocks links', async () => {
-  renderAppWithRouter()
+  renderAppWithRouter();
   await screen.findByTestId('stock-index-content');
   expect(screen.getByRole('link', { name: 'TEST-TICKER' })).toBeVisible();
   expect(screen.getByRole('link', { name: 'SECOND-TICKER' })).toBeVisible();
 });
 
 it('renders the stock details page with stock api data', async () => {
-  renderAppWithRouter();
+  renderAppWithRouter();;
   await screen.findByTestId('stock-index-content');
   userEvent.click(screen.getByRole('link', { name: 'TEST-TICKER' }));
   await screen.findByTestId('stock-details-content');
@@ -34,8 +36,18 @@ it('renders the stock details page with stock api data', async () => {
   expect(screen.getByTestId('stock-prices-table')).toBeVisible();
 });
 
+it('adds a new stock after ticker submission', async () => {
+  renderAppWithRouter();
+  await screen.findByTestId('stock-index-content');;
+  await userEvent.type(screen.getByLabelText('Add Ticker'), 'NEW-TICKER');
+  userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  await waitFor(() => {
+    expect(screen.getByRole('link', { name: 'NEW-TICKER' })).toBeVisible();
+  });
+});
+
 it('removes a stock after confirming deletion', async () => {
-  renderAppWithRouter()
+  renderAppWithRouter();
   await screen.findByTestId('stock-index-content');
   expect(screen.getByRole('link', { name: 'TEST-TICKER' })).toBeVisible();
   userEvent.click(screen.getByTestId('delete-TEST-TICKER'));

@@ -17,7 +17,8 @@ function AddStock({ className = '' }: AddStockProps) {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as HTMLFormElement;
-    const ticker: string = target.ticker.value;
+    const formData = new FormData(target);
+    const ticker = formData.get('ticker') as string;
 
     addStockMutation.mutate({ ticker }, {
       onSuccess: (newStock: Stock) => {
