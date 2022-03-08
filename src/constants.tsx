@@ -3,6 +3,7 @@
 // https://stackoverflow.com/a/61486795 
 const DOMAINS: { [key: string]: string } = Object.freeze({
   development: 'http://localhost:3004',
+  test: 'http://localhost:3004',
 })
 
 const env = process.env.NODE_ENV || 'development';

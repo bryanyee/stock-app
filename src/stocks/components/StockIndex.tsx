@@ -33,7 +33,7 @@ function StockIndexContent({ stocks }: { stocks: Stock[] }) {
   const selectedStock: Stock | undefined = stocks.find(({ id }) => id === selectedStockIdForDeletion);
 
   return (
-    <div>
+    <div data-testid="stock-index-content">
       <table className={styles['stock-table']}>
         <thead>
           <tr>
