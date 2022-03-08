@@ -14,11 +14,21 @@ function StockDetails() {
   const stockByTickerQuery = useStockByTickerQuery(ticker!);
   const stock = stockByTickerQuery.data as Stock;
 
-  // For Production: Add loading and error UI states
-  if (stockByTickerQuery.isLoading || stockByTickerQuery.isError) {
-    return null;
-  }
+  return (
+    <div>
+      <BackButton />
+      {/* For Production: Add loading and error UI states */}
+      {(stockByTickerQuery.isLoading || stockByTickerQuery.isError)
+        ? null
+        : <StockDetailsContent stock={stock} />
+      }
+    </div>
+  )
+}
 
+export default StockDetails;
+
+function StockDetailsContent({ stock }: { stock: Stock }) {
   // Sort prices by date, descending
   const prices = stock.historicalPrices.sort((dayPrice1, dayPrice2) => {
     if (dayPrice1.date < dayPrice2.date) return 1;
@@ -27,8 +37,7 @@ function StockDetails() {
   });
 
   return (
-    <div>
-      <BackButton />
+    <div data-testid="stock-details-content">
       <StockHeader stock={stock} />
       <table className={styles['price-table']}>
         <thead>
@@ -55,7 +64,5 @@ function StockDetails() {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
-
-export default StockDetails;
