@@ -39,7 +39,7 @@ function StockDetailsContent({ stock }: { stock: Stock }) {
   return (
     <div data-testid="stock-details-content">
       <StockHeader stock={stock} />
-      <table className={styles['price-table']}>
+      <table data-testid="stock-prices-table" className={styles['price-table']}>
         <thead>
           <tr>
             <th>Date</th>
